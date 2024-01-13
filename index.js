@@ -5,6 +5,7 @@ import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import connectDB from "./config/db.config.js";
 import morgan from "morgan";
 import bodyParser from "body-parser";
+import userRouter from "./routes/auth.routes.js";
 
 
 dotenv.config();
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
     res.send("API is running...");
 });
-
+app.use('/users', userRouter);
 app.use(notFound);
 app.use(errorHandler);
 
