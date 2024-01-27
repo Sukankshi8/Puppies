@@ -4,7 +4,7 @@ import colors from 'colors';
 
 dotenv.config();
 
-// const MONGO_URI = 'mongodb+srv://sumit:8167529759@cluster0.vrdp82y.mongodb.net/test?retryWrites=true&w=majority'
+
 const MONGO_URI = 'mongodb+srv://sumit:8167529759@cluster0.vrdp82y.mongodb.net/?retryWrites=true&w=majority';
 
 const connectDB = async () => {

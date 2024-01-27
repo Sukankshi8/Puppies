@@ -6,17 +6,20 @@ import connectDB from "./config/db.config.js";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import userRouter from "./routes/auth.routes.js";
-
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 connectDB();
 
 const app = express();
 
-
+// app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cookieParser())
+app.use(express.urlencoded({extended: false}))
 
 app.get("/", (req, res) => {
     res.send("API is running...");
